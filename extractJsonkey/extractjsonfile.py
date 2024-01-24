@@ -1,6 +1,11 @@
+'''
+We extract information that we need from the Json file to excel file
+'''
+
 import json
 import pandas as pd
 from datetime import datetime
+from pathlib import Path
 
 def average_days_between_dates(date_list):
     # Convert each date-time string into a datetime object
@@ -89,9 +94,11 @@ def extract_json_key(file_path):
 
 
 # File path of the JSON file
-file_path = '/Users/seanyoo/Desktop/extractJsonkey/yt_channelVideo_stats-Database.json'
+relative_path = Path('json/yt_channelVideo_stats-Database.json')
 
-f_dict = extract_json_key(file_path)
+# Get the absolute path for the relative path
+absolute_path = relative_path.resolve()
+f_dict = extract_json_key(absolute_path)
 # Create DataFrame from the dictionary
 df = pd.DataFrame(f_dict)
 
