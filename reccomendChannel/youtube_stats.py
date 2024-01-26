@@ -4,10 +4,9 @@ from bs4 import BeautifulSoup
 from googleapiclient.discovery import build
 import pandas as pd
 
-api_key = "AIzaSyDqYcV4mJWQImAteWnLeIzVgO4X9fO-mIY"
-#api_key = "AIzaSyAQ5NOVTp3LuGQZTb3RC_RREpTe3JGpvdg"
 youtube = build("youtube", "v3", developerKey=api_key)
 
+api_key = "api_key"
 
 class yt_channel_stats:
     def __init__(self, url, api_key, youtube):

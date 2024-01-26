@@ -6,10 +6,13 @@ from yt_channelVideo_stats import yt_channel_vid_statistic
 from googleapiclient.discovery import build
 import trainSimilar as ts 
 from pathlib import Path
+from PIL import Image
 
 
-api_key = "AIzaSyDqYcV4mJWQImAteWnLeIzVgO4X9fO-mIY"
-#api_key = "AIzaSyAQ5NOVTp3LuGQZTb3RC_RREpTe3JGpvdg"
+api_key = "API-KEY"
+image = Image.open('/Users/seanyoo/Desktop/SimiliarYTchannel-FPVpilot/image/drone.png')
+st.image(image)
+
 youtube = build("youtube", "v3", developerKey=api_key)
 relative_path = Path('/SimiliarYTchannel-FPVpilot/json/yt_channelVideo_stats-Database.json')
 db_file_path = '/Users/seanyoo/Desktop/SimiliarYTchannel-FPVpilot/json/yt_channelVideo_stats-Database.json'
@@ -28,6 +31,14 @@ def loadKnn(db_file_path):
 
 #title of the page 
 st.title("Drone Channel Reccomendation")
+st.markdown(
+    "AI Model for FPV Pilots <a href='https://github.com/seenyou09/SimiliarYTchannel-FPVpilot'><img src='https://i.ibb.co/rcwXt85/github.png' width='40' height='40' alt='GitHub'></a>",
+    unsafe_allow_html=True,
+)
+
+
+
+
 
 #sidebar for options 
 form1 = st.sidebar.form(key='parameter')

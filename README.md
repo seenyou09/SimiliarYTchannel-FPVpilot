@@ -1,24 +1,48 @@
-# Finding the ideal Drone Youtube Channel APP
+# Finding the Ideal Drone YouTube Channel App
+
+<img src="image/website.png" alt="Your Image" width="250"/>
+
+## **Summary**
+---
+This application is designed to enhance the discovery process of drone-related YouTube channels, catering to specific interests or sponsorship requirements for Betafpv, a drone company. It addresses the challenges faced with traditional YouTube search methods, particularly in finding niche channels. By using TF-IDF analysis of the ten most recent videos from an input channel, the app generates a curated list of similar channels from our JSON database. This innovative approach ensures accurate and efficient channel recommendations, making it a tool for marketing departments like Betafpv seeking partnerships or for drone enthusiasts looking for content tailored to their preferences.
+
+## **JSON Database**
+---
+The database is derived from another project and contains comprehensive statistics on drone YouTube channels, including:
+
+- Channel Name
+- Channel ID
+- Subscriber Count
+- Total Views
+- Total Number of Videos
+- Channel Category
+
+Additionally, it provides detailed statistics for the five most recent videos of each channel:
+
+- Video Title
+- Description
+- Published Date
+- Tag Count
+- View Count
+- Like Count
+- Dislike Count
+- Comment Count
+
+## **Building a Model for YouTube Channel Recommendation**
+---
+Channel similarity often resides within the video descriptions and titles. Our goal is to recommend channels based on the similarity of text descriptions using TF-IDF and cosine similarity. To achieve this, we retrieve the 10 most recent videos from the inputted YouTube channel and perform a similarity test against all channels in our database. This process ensures that users receive recommendations that closely match their preferences and interests, facilitating the discovery of new and relevant drone-related content.
 
 
 
-## **Summary:**
 ----
+### Learn about TF-IDF and cosine simliarity
 
-####    This application is engineered to streamline the discovery of drone-related YouTube channels tailored to specific interests or sponsorship criteria. Recognizing the limitations of conventional search methods on YouTube, especially when pinpointing niche channels, this app introduces a targeted approach. It leverages a sophisticated tf-idf analysis of the ten most recent videos from a given channel to generate a curated list of similar channels. This method ensures precision and efficiency in identifying potential channels for partnerships or personal enjoyment, thereby optimizing your search strategy on YouTube.
+TF-IDF is a statistical measure used to evaluate the importance of a word within a document relative to a collection of documents or a corpus. It is comprised of two components:
 
-### **Data Scraping and Cleaning:**
-----
+Term Frequency (TF): measures how frequently a term appears in a document.
 
-####     From my other project, I have built a Json databse of all the drone youtube Channel 
+Inverse Document Frequency (IDF): This measures the importance of the term across a set of documents.
 
-### **Building Model for Recipe Recommendation:**
 
-----
-
-####     Constructing an effective recommendation model involved utilizing TF-IDF (Term Frequency-Inverse Document Frequency) to evaluate the significance of each ingredient. TF-IDF works by assigning weights to words based on their frequency in a specific document relative to their frequency across all documents. In the context of our app, each recipe is treated as a document, and the ingredients as the words.
-
-####     To optimize the model, I eliminated common ingredients such as salt, pepper, water, etc. Though essential in cooking, could potentially skew the recommendation results. The step was measuring the similarity between the user-provided ingredients and the database of ingredients using cosine similarity. It refines the recommendations by filtering out the top similar recipes, ensuring that users receive the most similar recipes. For example, let's consider a scenario where a user inputs "kimchi" and "tofu" as ingredients. The recommendation model, after TF-IDF processing and cosine similarity calculation, filters through the database to present recipes prioritizing recipes that have kimchi as this is a more significant ingreident.
-
-####     While attempting to enhance the recommendation model, I attempted to use Word2Vec, a powerful word embedding technique, However, through experiment, it became evident that the performance of the model did not improve; in fact, it appeared to worsen. This observed decline is due to inherent challenges posed by certain Korean ingredients, whose meanings may not be effectively captured by the Word2Vec embedding. 
+Cosine similarity is a metric used to measure how similar two documents are irrespective of their size. For this project, each YouTube channel's video descriptions (after being processed through TF-IDF) are converted into vectors in a multidimensional space. Cosine similarity is then used to determine how similar an input channel's vector is to those of other channels in our database. Channels with the highest cosine similarity scores are considered the most similar and are recommended to the user.
 

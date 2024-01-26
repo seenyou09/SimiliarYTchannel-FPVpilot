@@ -5,8 +5,8 @@ import pandas as pd
 
 from yt_channelVideo_stats import yt_channel_vid_statistic
 from googleapiclient.discovery import build
-api_key = "AIzaSyDqYcV4mJWQImAteWnLeIzVgO4X9fO-mIY"
-#api_key = "AIzaSyAQ5NOVTp3LuGQZTb3RC_RREpTe3JGpvdg"
+
+api_key = "Api-KEY"
 youtube = build("youtube", "v3", developerKey=api_key)
 
  

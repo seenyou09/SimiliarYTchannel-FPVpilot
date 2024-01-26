@@ -4,8 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 from googleapiclient.discovery import build
 
-api_key = "AIzaSyDqYcV4mJWQImAteWnLeIzVgO4X9fO-mIY"
-#api_key = "AIzaSyAQ5NOVTp3LuGQZTb3RC_RREpTe3JGpvdg"
+api_key = "api_key"
 youtube = build("youtube", "v3", developerKey=api_key)
 filename = "channel_stat_df.json"
 
